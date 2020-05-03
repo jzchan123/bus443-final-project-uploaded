@@ -1,0 +1,44 @@
+{% extends "faculty/base.html" %}
+{% block content %}
+
+<div class="container">
+  <h1>Student Enrollment</h1>
+  <p><b>Shows who is currently enrolled in what class</b></p>            
+  <table class="table">
+    <thead>
+      <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Course ID</th>
+        <th>Course Description</th>
+      </tr>
+    </thead>
+    <tbody>
+    	{% for row in data %}
+      <tr>
+        <td> {{ row.firstname}} </td>
+		<td> {{ row.lastname}} </td>
+		<td> {{ row.courseid}} </td>
+		<td> {{ row.coursedescription}} </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <div class = "pagination">
+  	<span class = "step-links">
+		{% if data.has_previous %}
+			<a href= "?page=1">&laquo;first</a>
+			<a href= "?page={{ data.previous_page_number }}">previous </a>
+
+		{% endif %}
+		<span class = "current">
+			Page {{ data.number }} of {{ data.paginator.num_pages }}
+		</span>
+		{% if data.has_next %}
+			<a href = "?page={{ data.next_pagE_number }}">next</a>
+			<a href = "?page={{ data.paginator.num_pages}}">last &raquo;</a>
+		{% endif %}
+	</span>
+</div>
+
+{% endblock %}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+ </body>
+</html>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type" text/css" href="{% static 'faculty/css/style.css' %}>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="jumbotron text-center">
+  <h1>BUS 443 Final Home Page</h1>
+  <p>Made by :  {{ name }}</p> 
+</div>
+  
+
+<div class = "container">
+<table classs = "table">
+	<thead>
+		<tr>
+			<th>First</th>
+			<th>Second</th>
+			<th>Course ID</th>
+			<th>Course Description</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for row in data %}
+		<tr>
+			<td> {{ row.firstname}} </td>
+			<td> {{ row.lastname}} </td>
+			<td> {{ row.courseid}} </td>
+			<td> {{ row.coursedescription}} </td>
+		</tr>
+		{% endfor %} 
+	</tbody>
+     </table>
+</div>
+
+   
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+{% extends "faculty/base.html" %}
+{% block content %}
+
+
+<div class="jumbotron text-center">
+  <h1>BUS 443 Final Home Page</h1>
+  <p>Made by :  {{ name }}</p> 
+</div>
+  
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Project 1</h3>
+      <p>Make a website to Professor Ravi's specifications</p>
+      
+    </div>
+    <div class="col-sm-4">
+      <h3>Project 2</h3>
+      <p>Write your resume utilizing only HTML code</p>
+     
+    </div>
+    <div class="col-sm-4">
+      <h3>Project 3</h3>        
+      <p>Writing code in Python!</p>
+      
+    </div>
+  </div>
+</div>
+<div class= "container">
+	<input type = "text" id="fname"><br/><br/>
+	<input type = "text" id="lname"><br/><br/>
+	<input type = "text" id="cid"><br/><br/>
+	<input type = "text" id="cdesc"><br/><br/>
+	<button id ="btn">Submit</button>
+</div>
+
+<script>
+$(document).ready(function(){
+	$("#btn").click(function(){
+		$.ajax({
+			url: "{% url 'savedata' %}",
+			data: {
+				fname: $("#fname").val(),
+				lname: $("#lname").val(),
+				lname: $("#cid").val(),
+				lname: $("#cdesc").val()
+			},
+			success:function(){
+				window.location="{% url 'details' %} ;
+			}
+		});
+	});
+});
+</script>
+
+{% endblock %}
